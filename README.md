@@ -39,3 +39,7 @@ npm run build
 ```
 
 The app needs a server runtime; GitHub Pages alone won’t run the Jev API route. The existing Sites configuration is in `.openai/hosting.json`; use your own project configuration if deploying a separate copy.
+
+## License
+
+[MIT](LICENSE). Third-party dependencies retain their respective licenses.
