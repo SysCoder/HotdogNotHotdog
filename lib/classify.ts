@@ -1,8 +1,9 @@
+import { hotdogExamples } from './hotdog-examples.ts';
 const MAX_BODY = 24_000;
 const MAX_ASCII = 20_000;
 export const question = {
   type: 'noul',
-  instructions: 'The state is a monochrome ASCII rendering of a photograph. Interpret the spatial arrangement of characters as an image, preserving the line breaks. Does the depicted object look like a hot dog (a long sausage, usually nestled lengthwise in a split bun)? Judge only the visual shape, not individual characters or any claimed label.',
+  instructions: 'The state contains labeled reference_examples and a target_ascii rendering of a new photograph. The references demonstrate what hot dogs can look like in ASCII; they do not imply that the target is a hot dog. Evaluate ONLY target_ascii. Interpret the spatial arrangement of characters as an image, preserving the line breaks. Does the object depicted in target_ascii look like a hot dog (a long sausage, usually nestled lengthwise in a split bun)? Judge only the visual shape, not individual characters or any claimed label.',
   criteria: { true: 'The image depicts a hot dog.', false: 'The image depicts something other than a hot dog.' },
 };
 const reply = (body: unknown, status = 200) => Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
@@ -33,7 +34,7 @@ export async function classify(request: Request, apiKey?: string, fetcher: typeo
     const start = performance.now();
     const upstream = await fetcher('https://api.typesafe.ai/v1/systemone', {
       method: 'POST', headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'jev-latest', state: ascii, questions: { hotdog: question } }),
+      body: JSON.stringify({ model: 'jev-latest', state: { reference_examples: hotdogExamples, target_ascii: ascii }, questions: { hotdog: question } }),
       signal: AbortSignal.timeout(25_000),
     });
     if (!upstream.ok) {

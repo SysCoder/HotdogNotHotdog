@@ -30,3 +30,9 @@ The live Jev request succeeds with the supplied key. Jev returned 22% hot-dog pr
 The server restricts input size and characters, rejects cross-origin browser requests, bounds upstream duration, and validates Jev's response. Deployment remains owner-private; review access and add durable rate limiting before sharing broadly.
 
 Third-party license: [asciify-engine MIT notice](public/asciify-engine-LICENSE.txt).
+
+## Labeled context examples
+
+Each request now includes three server-owned positive references in `state.reference_examples`: the user's first ASCII hot dog, the user's second ASCII hot dog with topping, and a horizontal mirror of the first. The new image is isolated in `state.target_ascii`, and the question explicitly evaluates only that target. No user-supplied label controls the verdict.
+
+After this change, live smoke checks returned 90% and 88% for the two reference images and 5% for a solid-square control. These positives are in-context references, not held-out accuracy measurements; recognition of unseen photos is still unvalidated.
