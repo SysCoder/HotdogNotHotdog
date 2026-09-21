@@ -9,7 +9,7 @@ for (const [probability, verdict] of [[0.91, true], [0.08, false], [0.5, true]] 
       assert.equal(url, 'https://api.typesafe.ai/v1/systemone');
       const payload = JSON.parse(options!.body as string);
       assert.equal(payload.state.target_ascii, ascii);
-      assert.equal(payload.state.reference_examples.length, 3);
+      assert.equal(payload.state.reference_examples.length, 5);
       assert.ok(payload.state.reference_examples.every((example: { label: string; ascii: string }) => example.label === 'hot dog' && example.ascii.includes('\n'))); assert.equal(payload.questions.hotdog.type, 'noul');
       assert.equal(payload.model, 'jev-latest');
       return Response.json({ model: 'jev-test', answers: { hotdog: { type: 'noul', noul: probability } } });

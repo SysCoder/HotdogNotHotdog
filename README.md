@@ -33,6 +33,6 @@ Third-party license: [asciify-engine MIT notice](public/asciify-engine-LICENSE.t
 
 ## Labeled context examples
 
-Each request now includes three server-owned positive references in `state.reference_examples`: the user's first ASCII hot dog, the user's second ASCII hot dog with topping, and a horizontal mirror of the first. The new image is isolated in `state.target_ascii`, and the question explicitly evaluates only that target. No user-supplied label controls the verdict.
+Each request now includes five server-owned positive references in `state.reference_examples`: the user's first ASCII hot dog, the user's second ASCII hot dog with topping, a horizontal mirror of the first, the user’s third hot dog angled from lower left to upper right, and a mustard-topped hot-dog photo converted with the page’s ASCII settings. The new image is isolated in `state.target_ascii`, and the question explicitly evaluates only that target. No user-supplied label controls the verdict.
 
 After this change, live smoke checks returned 90% and 88% for the two reference images and 5% for a solid-square control. These positives are in-context references, not held-out accuracy measurements; recognition of unseen photos is still unvalidated.
