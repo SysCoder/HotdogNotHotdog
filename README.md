@@ -4,7 +4,7 @@ Inspired by the **“Not Hotdog” app from HBO’s Silicon Valley**. One very i
 
 Paste a photo, turn it into ASCII art, and let [Jev](https://docs.typesafe.ai/) decide: **hot dog or not hot dog?**
 
-**I know this isn’t what Jev is meant to do. I built it just for fun.** This is a playful experiment, not a serious image classifier or a benchmark of Jev’s capabilities. Sometimes it gets the hot dog wrong. That’s part of the fun.
+**I know this isn’t what Jev is meant to do. I built it just for fun.** This is a playful experiment, not a serious image classifier or a benchmark of Jev’s capabilities. In my casual attempts, recognition didn’t seem to work successfully. I haven’t tested it rigorously, so I can’t draw conclusions about its accuracy.
 
 ## How it works
 
